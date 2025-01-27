@@ -1,0 +1,1184 @@
+Project Path: src
+
+Source Tree:
+
+```
+src
+├── _includes
+│   ├── header.njk
+│   ├── footer.njk
+│   └── base.njk
+├── css
+│   └── styles.css
+├── images
+│   ├── background
+│   │   └── bg.jpg
+│   ├── collection
+│   │   ├── 8.jpg
+│   │   ├── 9.jpg
+│   │   ├── 4.jpg
+│   │   ├── 5.jpg
+│   │   ├── 7.jpg
+│   │   ├── 6.jpg
+│   │   ├── 2.jpg
+│   │   ├── 3.jpg
+│   │   └── 1.jpg
+│   └── portraits
+│       ├── emiPortrait.jpg
+│       └── elenaPortrait.jpg
+├── js
+│   ├── main.js
+│   └── modal.js
+├── ja
+│   ├── collection.md
+│   ├── contact.md
+│   ├── exhibits.md
+│   ├── index.md
+│   └── about.md
+├── _redirects
+├── _data
+│   └── i18n
+│       ├── ja.json
+│       ├── en.json
+│       └── es.json
+├── es
+│   ├── collection.md
+│   ├── contact.md
+│   ├── exhibits.md
+│   ├── index.md
+│   └── about.md
+└── en
+    ├── collection.md
+    ├── contact.md
+    ├── exhibits.md
+    ├── index.md
+    └── about.md
+
+```
+
+`/Users/gords/Documents/toh/src/_includes/header.njk`:
+
+```njk
+{%- set locale = page.filePathStem | getLocale -%}
+<header>
+    <nav class="left-nav">
+        <ul>
+            <li><a href="/{{ locale }}/about">{{ i18n[locale].site.nav.about }}</a></li>
+            <li><a href="/{{ locale }}/collection">{{ i18n[locale].site.nav.collection }}</a></li>
+            <li><a href="/{{ locale }}/exhibits">{{ i18n[locale].site.nav.exhibits }}</a></li>
+        </ul>
+    </nav>
+    <h1 class="site-title"><a href="/{{ locale }}/">{{ i18n[locale].site.title }}</a></h1>
+    <nav class="right-nav">
+        <ul>
+            <li><a href="/{{ locale }}/contact">{{ i18n[locale].site.nav.contact }}</a></li>
+        </ul>
+    </nav>
+</header>
+```
+
+`/Users/gords/Documents/toh/src/_includes/footer.njk`:
+
+```njk
+{%- set locale = page.filePathStem | getLocale -%}
+<footer>
+    <div class="footer-left">
+        <p>{{ i18n[locale].site.footer.copyright }}</p>
+    </div>
+    <div class="footer-right">
+        <p><a href="https://www.linkedin.com/in/emifukuoka">LinkedIn</a></p>
+    </div>
+</footer>
+```
+
+`/Users/gords/Documents/toh/src/_includes/base.njk`:
+
+```njk
+{%- set locale = page.filePathStem | getLocale -%}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} - {% endif %}{{ i18n[locale].site.title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body class="{{ class | default('') }}">
+    {% include 'header.njk' %}
+    <main id="content">
+        {% languageSwitcher page %}
+        {{ content | safe }}
+    </main>
+    {% include 'footer.njk' %}
+    
+    <script src="/js/main.js" defer></script>
+    <script src="/js/modal.js" defer></script>
+</body>
+</html>
+```
+
+`/Users/gords/Documents/toh/src/css/styles.css`:
+
+```css
+/* styles.css */
+
+/* Reset and Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #333;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+button, .button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s;
+}
+
+button:hover, .button:hover {
+    background-color: #555;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.left-nav, .right-nav {
+    flex: 1;
+}
+
+.site-title {
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.left-nav ul {
+    justify-content: flex-start;
+}
+
+.right-nav ul {
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #555;
+}
+
+/* Main Content Styles */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Home Page Background Image */
+.home-page main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/background/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+
+section {
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    font-size: 12px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #555;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .left-nav, .right-nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .site-title {
+        margin: 15px 0;
+        font-size: 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .footer-left, .footer-right {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+/* Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 40px;
+    transition: color 0.3s;
+    user-select: none;
+}
+
+.prev:hover,
+.next:hover {
+    color: #bbb;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Responsive Modal Image */
+@media screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.language-switcher {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.lang-link {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.lang-link:hover {
+    background-color: #f5f5f5;
+}
+
+.lang-link.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+```
+
+`/Users/gords/Documents/toh/src/js/main.js`:
+
+```js
+document.addEventListener('DOMContentLoaded', function() {
+    const mainContent = document.getElementById('content');
+    const navLinks = document.querySelectorAll('nav a');
+    const body = document.body;
+    
+    // Helper function to get current locale from URL
+    function getCurrentLocale() {
+        const match = window.location.pathname.match(/^\/([a-z]{2})\//);
+        return match ? match[1] : 'en';
+    }
+
+    // Helper function to handle 404s and redirects
+    function handleNotFound(url) {
+        const locale = getCurrentLocale();
+        // Try to load the 404 page for the current locale
+        const notFoundUrl = locale === 'en' ? '/404.html' : `/${locale}/404.html`;
+        
+        fetch(notFoundUrl)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const notFoundContent = doc.querySelector('main');
+                
+                if (notFoundContent) {
+                    mainContent.innerHTML = notFoundContent.innerHTML;
+                } else {
+                    mainContent.innerHTML = '<p>Page not found.</p>';
+                }
+                
+                document.title = 'Page Not Found - Threads of Hybridity';
+            })
+            .catch(() => {
+                mainContent.innerHTML = '<p>Page not found.</p>';
+            });
+    }
+
+    // Function to load a page via AJAX
+    function loadPage(url, pushState = true) {
+        // Remove trailing slash if present (except for root)
+        const normalizedUrl = url === '/' ? url : url.replace(/\/$/, '');
+        
+        fetch(normalizedUrl)
+            .then(response => {
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        handleNotFound(normalizedUrl);
+                        throw new Error('Page not found');
+                    }
+                    throw new Error('Network response was not ok.');
+                }
+                return response.text();
+            })
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newMainContent = doc.querySelector('main');
+                const newBodyClass = doc.body.className || '';
+                
+                if (newMainContent) {
+                    // Replace main content
+                    mainContent.innerHTML = newMainContent.innerHTML;
+                    
+                    // Update body class to apply page-specific styles
+                    body.className = newBodyClass;
+                    
+                    // Update language switcher links
+                    updateActiveLangLinks();
+                    
+                    // Re-initialize any new scripts or event listeners
+                    if (typeof initModal === 'function') {
+                        initModal();
+                    }
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                } else {
+                    handleNotFound(normalizedUrl);
+                }
+
+                if (pushState) {
+                    history.pushState({ url: normalizedUrl }, "", normalizedUrl);
+                }
+
+                const title = doc.querySelector('title');
+                if (title) {
+                    document.title = title.textContent;
+                } else {
+                    document.title = 'Threads of Hybridity';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading page:', error);
+                if (error.message !== 'Page not found') {
+                    mainContent.innerHTML = '<p>Sorry, an error occurred while loading the page.</p>';
+                }
+            });
+    }
+
+    // Function to update active state of language switcher links
+    function updateActiveLangLinks() {
+        const langLinks = document.querySelectorAll('.lang-link');
+        const currentLocale = getCurrentLocale();
+        
+        langLinks.forEach(link => {
+            const linkLocale = link.getAttribute('hreflang');
+            link.classList.toggle('active', linkLocale === currentLocale);
+        });
+    }
+
+    // Event Listener for Navigation Links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            loadPage(this.href);
+        });
+    });
+
+    // Event Listener for Language Switcher Links
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('lang-link')) {
+            e.preventDefault();
+            loadPage(e.target.href);
+        }
+    });
+
+    // Handle browser back/forward buttons
+    window.onpopstate = function(event) {
+        if (event.state && event.state.url) {
+            loadPage(event.state.url, false);
+        } else {
+            loadPage(window.location.pathname, false);
+        }
+    };
+
+    // Initial load
+    if (!window.location.hash) {
+        history.replaceState({ url: window.location.pathname }, '', window.location.pathname);
+    }
+
+    // Initialize modal on initial page load
+    if (typeof initModal === 'function') {
+        initModal();
+    }
+});
+```
+
+`/Users/gords/Documents/toh/src/js/modal.js`:
+
+```js
+// src/js/modal.js
+
+(function() {
+    let currentImageIndex = 0;
+    let galleryImages = [];
+    let modal, modalImage, captionText, closeBtn, prevBtn, nextBtn;
+
+    // Initialize Modal Elements
+    function initializeModalElements() {
+        modal = document.getElementById('modal');
+        modalImage = document.getElementById('modal-image');
+        captionText = document.getElementById('caption');
+        closeBtn = document.querySelector('.close');
+        prevBtn = document.querySelector('.prev');
+        nextBtn = document.querySelector('.next');
+    }
+
+    // Open Modal with Specified Image
+    function openModal(index) {
+        currentImageIndex = index;
+        const img = galleryImages[currentImageIndex];
+        modal.style.display = "block";
+        modalImage.src = img.src;
+        captionText.textContent = img.alt;
+    }
+
+    // Close Modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Show Next Image
+    function showNext() {
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        const img = galleryImages[currentImageIndex];
+        modalImage.src = img.src;
+        captionText.textContent = img.alt;
+    }
+
+    // Show Previous Image
+    function showPrev() {
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        const img = galleryImages[currentImageIndex];
+        modalImage.src = img.src;
+        captionText.textContent = img.alt;
+    }
+
+    // Attach Event Listeners to Gallery Images
+    function attachGalleryEventListeners() {
+        galleryImages = document.querySelectorAll('.gallery-image');
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                openModal(index);
+            });
+        });
+    }
+
+    // Attach Event Listeners to Modal Controls
+    function attachModalEventListeners() {
+        if (closeBtn && prevBtn && nextBtn) {
+            closeBtn.addEventListener('click', closeModal);
+            nextBtn.addEventListener('click', showNext);
+            prevBtn.addEventListener('click', showPrev);
+        }
+
+        // Close modal when clicking outside the image
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (modal.style.display === "block") {
+                if (event.key === 'ArrowRight') {
+                    showNext();
+                } else if (event.key === 'ArrowLeft') {
+                    showPrev();
+                } else if (event.key === 'Escape') {
+                    closeModal();
+                }
+            }
+        });
+    }
+
+    // Initialize Modal Functionality
+    function initModal() {
+        initializeModalElements();
+        attachGalleryEventListeners();
+        attachModalEventListeners();
+    }
+
+    // Expose initModal to be called externally
+    window.initModal = initModal;
+})();
+```
+
+`/Users/gords/Documents/toh/src/ja/collection.md`:
+
+```md
+---
+layout: base.njk
+title: Collection - Threads of Hybridity
+---
+  
+# Collection
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="/images/collection/1.jpg" alt="Description of Image 1" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/2.jpg" alt="Description of Image 2" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/3.jpg" alt="Description of Image 3" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/4.jpg" alt="Description of Image 4" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/5.jpg" alt="Description of Image 5" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/6.jpg" alt="Description of Image 6" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/7.jpg" alt="Description of Image 7" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/8.jpg" alt="Description of Image 8" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/9.jpg" alt="Description of Image 9" class="gallery-image" loading="lazy">
+    </div>
+    <!-- Add more images as needed -->
+</div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <div id="caption"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+```
+
+`/Users/gords/Documents/toh/src/ja/contact.md`:
+
+```md
+---
+layout: base.njk
+title: Contact
+---
+
+## Contact Us
+
+Feel free to reach out through the following channels:
+
+- **Email:** [emifukuoka@example.com](mailto:emifukuoka@example.com)
+- **Phone:** (123) 456-7890
+
+Alternatively, you can use the contact form below:
+
+<form action="/submit-form" method="POST">
+    <label for="name">Name:</label><br/>
+    <input type="text" id="name" name="name" required><br/><br/>
+    
+    <label for="email">Email:</label><br/>
+    <input type="email" id="email" name="email" required><br/><br/>
+    
+    <label for="message">Message:</label><br/>
+    <textarea id="message" name="message" rows="5" required></textarea><br/><br/>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+
+```
+
+`/Users/gords/Documents/toh/src/ja/exhibits.md`:
+
+```md
+---
+layout: base.njk
+title: Exhibits
+---
+
+## Current Exhibits
+
+### Threads of Identity: Nikkei Experience in Paraguay
+
+
+```
+
+`/Users/gords/Documents/toh/src/ja/index.md`:
+
+```md
+---
+layout: base.njk
+title: Home - Threads of Hybridity
+class: home-page
+---
+```
+
+`/Users/gords/Documents/toh/src/ja/about.md`:
+
+```md
+---
+layout: base.njk
+title: Home - Threads of Hybridity
+---
+
+## Project Overview
+
+This project explores the complexity of Nikkei identity through Ñanduti, a traditional Paraguayan lace, and how this cultural material can reflect and transform the identity of the Nikkei community in Paraguay.
+
+## Ñanduti: A Cultural Bridge
+
+Ñanduti is a lace with Spanish origins, derived from a lace called Tenerife, from the Canary Islands. The indigenous people of Paraguay who learned it from the Spanish incorporated motifs inspired by Paraguayan scenes, nature, traditions, and daily life, and called it Ñanduti, which means "spider web" in Guarani, the second official language of Paraguay, giving it its own identity.
+
+## The Nikkei Experience
+
+Like Ñanduti, the collective identity of Japanese immigrants and their descendants is interwoven with threads of diverse traditions, forming a pattern that honors both their roots and the experiences acquired in new lands.
+```
+
+`/Users/gords/Documents/toh/src/_redirects`:
+
+```
+   # Redirect root to English
+   /  /en/  302
+
+   # Specific language redirects
+   /es/* /es/:splat 302 Language=es
+   /ja/* /ja/:splat 302 Language=ja
+
+   # General redirect for all other paths to English
+   /* /en/:splat 302 Language=en
+```
+
+`/Users/gords/Documents/toh/src/_data/i18n/ja.json`:
+
+```json
+{
+  "site": {
+    "title": "Threads of Hybridity",
+    "nav": {
+      "about": "概要",
+      "collection": "コレクション",
+      "exhibits": "展示",
+      "contact": "お問い合わせ"
+    },
+    "footer": {
+      "copyright": "© 2024 EMI FUKUOKA"
+    }
+  }
+}
+```
+
+`/Users/gords/Documents/toh/src/_data/i18n/en.json`:
+
+```json
+{
+    "site": {
+      "title": "Threads of Hybridity",
+      "nav": {
+        "about": "About",
+        "collection": "Collection",
+        "exhibits": "Exhibits",
+        "contact": "Contact"
+      },
+      "footer": {
+        "copyright": "© 2024 EMI FUKUOKA"
+      }
+    }
+  }
+```
+
+`/Users/gords/Documents/toh/src/_data/i18n/es.json`:
+
+```json
+{
+  "site": {
+    "title": "Threads of Hybridity",
+    "nav": {
+      "about": "Acerca de",
+      "collection": "Colección",
+      "exhibits": "Exhibiciones",
+      "contact": "Contacto"
+    },
+    "footer": {
+      "copyright": "© 2024 EMI FUKUOKA"
+    }
+  }
+}
+```
+
+`/Users/gords/Documents/toh/src/es/collection.md`:
+
+```md
+---
+layout: base.njk
+title: Collection - Threads of Hybridity
+---
+  
+# Collection
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="/images/collection/1.jpg" alt="Description of Image 1" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/2.jpg" alt="Description of Image 2" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/3.jpg" alt="Description of Image 3" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/4.jpg" alt="Description of Image 4" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/5.jpg" alt="Description of Image 5" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/6.jpg" alt="Description of Image 6" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/7.jpg" alt="Description of Image 7" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/8.jpg" alt="Description of Image 8" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/9.jpg" alt="Description of Image 9" class="gallery-image" loading="lazy">
+    </div>
+    <!-- Add more images as needed -->
+</div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <div id="caption"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+```
+
+`/Users/gords/Documents/toh/src/es/contact.md`:
+
+```md
+---
+layout: base.njk
+title: Contact
+---
+
+## Contact Us
+
+Feel free to reach out through the following channels:
+
+- **Email:** [emifukuoka@example.com](mailto:emifukuoka@example.com)
+- **Phone:** (123) 456-7890
+
+Alternatively, you can use the contact form below:
+
+<form action="/submit-form" method="POST">
+    <label for="name">Name:</label><br/>
+    <input type="text" id="name" name="name" required><br/><br/>
+    
+    <label for="email">Email:</label><br/>
+    <input type="email" id="email" name="email" required><br/><br/>
+    
+    <label for="message">Message:</label><br/>
+    <textarea id="message" name="message" rows="5" required></textarea><br/><br/>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+
+```
+
+`/Users/gords/Documents/toh/src/es/exhibits.md`:
+
+```md
+---
+layout: base.njk
+title: Exhibits
+---
+
+## Current Exhibits
+
+### Threads of Identity: Nikkei Experience in Paraguay
+
+
+```
+
+`/Users/gords/Documents/toh/src/es/index.md`:
+
+```md
+---
+layout: base.njk
+title: Home - Threads of Hybridity
+class: home-page
+---
+```
+
+`/Users/gords/Documents/toh/src/es/about.md`:
+
+```md
+---
+layout: base.njk
+title: Home - Threads of Hybridity
+---
+
+## Project Overview
+
+This project explores the complexity of Nikkei identity through Ñanduti, a traditional Paraguayan lace, and how this cultural material can reflect and transform the identity of the Nikkei community in Paraguay.
+
+## Ñanduti: A Cultural Bridge
+
+Ñanduti is a lace with Spanish origins, derived from a lace called Tenerife, from the Canary Islands. The indigenous people of Paraguay who learned it from the Spanish incorporated motifs inspired by Paraguayan scenes, nature, traditions, and daily life, and called it Ñanduti, which means "spider web" in Guarani, the second official language of Paraguay, giving it its own identity.
+
+## The Nikkei Experience
+
+Like Ñanduti, the collective identity of Japanese immigrants and their descendants is interwoven with threads of diverse traditions, forming a pattern that honors both their roots and the experiences acquired in new lands.
+```
+
+`/Users/gords/Documents/toh/src/en/collection.md`:
+
+```md
+---
+layout: base.njk
+title: Collection - Threads of Hybridity
+---
+  
+# Collection
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img src="/images/collection/1.jpg" alt="Description of Image 1" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/2.jpg" alt="Description of Image 2" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/3.jpg" alt="Description of Image 3" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/4.jpg" alt="Description of Image 4" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/5.jpg" alt="Description of Image 5" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/6.jpg" alt="Description of Image 6" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/7.jpg" alt="Description of Image 7" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/8.jpg" alt="Description of Image 8" class="gallery-image" loading="lazy">
+    </div>
+    <div class="gallery-item">
+        <img src="/images/collection/9.jpg" alt="Description of Image 9" class="gallery-image" loading="lazy">
+    </div>
+    <!-- Add more images as needed -->
+</div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <div id="caption"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+```
+
+`/Users/gords/Documents/toh/src/en/contact.md`:
+
+```md
+---
+layout: base.njk
+title: Contact
+---
+
+## Contact Us
+
+Feel free to reach out through the following channels:
+
+- **Email:** [emifukuoka@example.com](mailto:emifukuoka@example.com)
+- **Phone:** (123) 456-7890
+
+Alternatively, you can use the contact form below:
+
+<form action="/submit-form" method="POST">
+    <label for="name">Name:</label><br/>
+    <input type="text" id="name" name="name" required><br/><br/>
+    
+    <label for="email">Email:</label><br/>
+    <input type="email" id="email" name="email" required><br/><br/>
+    
+    <label for="message">Message:</label><br/>
+    <textarea id="message" name="message" rows="5" required></textarea><br/><br/>
+    
+    <button type="submit">Send Message</button>
+</form>
+
+
+```
+
+`/Users/gords/Documents/toh/src/en/exhibits.md`:
+
+```md
+---
+layout: base.njk
+title: Exhibits
+---
+
+## Current Exhibits
+
+### Threads of Identity: Nikkei Experience in Paraguay
+
+
+```
+
+`/Users/gords/Documents/toh/src/en/index.md`:
+
+```md
+---
+layout: base.njk
+title: Home - Threads of Hybridity
+class: home-page
+---
+```
+
+`/Users/gords/Documents/toh/src/en/about.md`:
+
+```md
+---
+layout: base.njk
+title: Home - Threads of Hybridity
+---
+
+## Project Overview
+
+This project explores the complexity of Nikkei identity through Ñanduti, a traditional Paraguayan lace, and how this cultural material can reflect and transform the identity of the Nikkei community in Paraguay.
+
+## Ñanduti: A Cultural Bridge
+
+Ñanduti is a lace with Spanish origins, derived from a lace called Tenerife, from the Canary Islands. The indigenous people of Paraguay who learned it from the Spanish incorporated motifs inspired by Paraguayan scenes, nature, traditions, and daily life, and called it Ñanduti, which means "spider web" in Guarani, the second official language of Paraguay, giving it its own identity.
+
+## The Nikkei Experience
+
+Like Ñanduti, the collective identity of Japanese immigrants and their descendants is interwoven with threads of diverse traditions, forming a pattern that honors both their roots and the experiences acquired in new lands.
+```

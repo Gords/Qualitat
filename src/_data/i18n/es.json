@@ -1,0 +1,31 @@
+{
+    "site": {
+        "title": "QUALITAT",
+        "nav": {
+            "services": "Servicios",
+            "about": "Nosotros",
+            "contact": "Contacto"
+        },
+        "footer": {
+            "address": "Cerro Cora 3232 esquina Kennedy",
+            "hours": "Horario de atención: 10am a 6pm",
+            "copyright": "© 2024 QUALITAT"
+        },
+        "home": {
+            "intro": "En Qualitat, transformamos la confianza en acción. Ofrecemos servicios de verificación, inspección y certificación que garantizan el cumplimiento normativo y la seguridad en productos y procesos. Nuestro compromiso es asegurar calidad, sostenibilidad y tranquilidad para tu empresa y tu comunidad."
+        },
+        "services": {
+            "current": {
+                "title": "Servicios Actuales",
+                "batteries": "Certificación de calidad de pilas y baterías"
+            },
+            "development": {
+                "title": "Servicios en Desarrollo",
+                "agro": "Industria agroganadera: Garantía de productos seguros y sostenibles",
+                "energy": "Sector energético: Cumplimiento normativo y eficiencia en instalaciones",
+                "food": "Industria alimentaria: Certificaciones que avalan calidad y seguridad alimentaria",
+                "sustainability": "Sustentabilidad: Certificaciones relacionadas con la sostenibilidad y economía circular"
+            }
+        }
+    }
+} 
