@@ -23,7 +23,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: var(--navy-blue);
+    background-color: var(--light-gray);
     padding: 1rem 2rem;
 }
 
