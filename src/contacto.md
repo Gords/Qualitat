@@ -12,7 +12,7 @@ title: Contacto
 
         <div class="info-item">
             <h3>Teléfono</h3>
-            <p><a href="tel:0981567270">0981-567-270</a></p>
+            <p>0981-567-270</p>
         </div>
 
         <div class="info-item">
