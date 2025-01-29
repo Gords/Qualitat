@@ -4,57 +4,34 @@ Source Tree:
 
 ```
 Qualitat
-├── README.md
 ├── package-lock.json
 ├── package.json
-├── _site
-│   ├── index.html
-│   ├── css
-│   │   └── styles.css
-│   ├── images
-│   │   ├── favicon.ico
-│   │   ├── Principal__A_Color.png
-│   │   └── Principal_a_color-01.png
-│   ├── nosotros
-│   │   └── index.html
-│   ├── js
-│   │   └── main.js
-│   ├── servicios
-│   │   └── index.html
-│   └── contacto
-│       └── index.html
+├── README.md
 └── src
-    ├── _includes
-    │   ├── header.njk
-    │   ├── footer.njk
-    │   └── base.njk
-    ├── css
-    │   └── styles.css
-    ├── images
-    │   ├── favicon.ico
-    │   ├── Principal__A_Color.png
-    │   └── Principal_a_color-01.png
+    ├── _data
+    │   └── i18n
+    │       └── es.json
+    ├── servicios.md
+    ├── index.md
     ├── js
     │   └── main.js
-    ├── servicios.md
-    ├── contacto.md
     ├── nosotros.md
-    ├── index.md
-    └── _data
-        └── i18n
-            └── es.json
+    ├── images
+    │   ├── Main-logo.png
+    │   ├── iso-icon.png
+    │   ├── Main-logo-test.png
+    │   └── Small-logo.png
+    ├── contacto.md
+    ├── css
+    │   └── styles.css
+    └── _includes
+        ├── footer.njk
+        ├── base.njk
+        └── header.njk
 
 ```
 
-`/Users/gords/Documents/Qualitat/README.md`:
-
-```md
-# Qualitat
-Qualitat certification company website
-
-```
-
-`/Users/gords/Documents/Qualitat/package-lock.json`:
+`/home/marwerk/Runewerk/Qualitat/package-lock.json`:
 
 ```json
 {
@@ -2703,7 +2680,7 @@ Qualitat certification company website
 
 ```
 
-`/Users/gords/Documents/Qualitat/package.json`:
+`/home/marwerk/Runewerk/Qualitat/package.json`:
 
 ```json
 {
@@ -2725,978 +2702,15 @@ Qualitat certification company website
 
 ```
 
-`/Users/gords/Documents/Qualitat/_site/index.html`:
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - QUALITAT</title>
-    <link href="/css/styles.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gantari&display=swap" rel="stylesheet">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body class="home-page">
-    <header>
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <img src="images/Principal_a_color-01.png" alt="QUALITAT" height="80">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header> 
-    <main id="content">
-        <section class="hero">
-    <h1>QUALITAT</h1>
-    <p class="intro">En Qualitat, transformamos la confianza en acción. Ofrecemos servicios de verificación, inspección y certificación que garantizan el cumplimiento normativo y la seguridad en productos y procesos. Nuestro compromiso es asegurar calidad, sostenibilidad y tranquilidad para tu empresa y tu comunidad.</p>
-</section> 
-    </main>
-    <footer>
-    <div class="footer-content">
-        <div class="footer-info">
-            <p>Cerro Cora 3232 esquina Kennedy</p>
-            <p>Horario de atención: 10am a 6pm</p>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2025 QUALITAT</p>
-        </div>
-    </div>
-</footer> 
-    
-    <script src="/js/main.js" defer></script>
-</body>
-</html> 
-```
-
-`/Users/gords/Documents/Qualitat/_site/css/styles.css`:
-
-```css
-/* Reset and Global Styles */
-:root {
-    --navy-blue: #283676;
-    --green: #90C056;
-    --light-gray: #E1E1E1;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Gantari', Arial, sans-serif;
-    color: #333;
-    height: 100%;
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Header Styles */
-header {
-    background-color: var(--light-gray);
-    padding: 1rem 2rem;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--green);
-}
-
-/* Main Content Styles */
-main {
-    flex-grow: 1;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-h1 {
-    color: var(--navy-blue);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-h2 {
-    color: var(--navy-blue);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-h3 {
-    color: var(--navy-blue);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-.intro {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-}
-
-/* Services Styles */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.service-card {
-    background-color: var(--light-gray);
-    padding: 1.5rem;
-    border-radius: 4px;
-}
-
-/* Contact Styles */
-.contact {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-.contact-info {
-    margin: 2rem 0;
-}
-
-.info-item {
-    margin-bottom: 2rem;
-}
-
-.info-item h3 {
-    margin-bottom: 0.5rem;
-}
-
-.info-item p {
-    margin: 0.5rem 0;
-    font-size: 1.125rem;
-}
-
-.info-item a {
-    color: var(--navy-blue);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.info-item a:hover {
-    color: var(--green);
-}
-
-/* Contact Form Styles */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--navy-blue);
-    font-size: 1.125rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--light-gray);
-    border-radius: 4px;
-    font-size: 1.125rem;
-}
-
-button {
-    background-color: var(--green);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 1.125rem;
-}
-
-button:hover {
-    background-color: #7ba548;
-}
-
-/* Footer Styles */
-footer {
-    background-color: var(--navy-blue);
-    color: white;
-    padding: 2rem;
-    margin-top: auto;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-info p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header nav {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    .intro {
-        font-size: 1.125rem;
-    }
-} 
-```
-
-`/Users/gords/Documents/Qualitat/_site/nosotros/index.html`:
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - QUALITAT</title>
-    <link href="/css/styles.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gantari&display=swap" rel="stylesheet">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body class="">
-    <header>
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <img src="images/Principal_a_color-01.png" alt="QUALITAT" height="80">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header> 
-    <main id="content">
-        <section class="about">
-    <h2>Nosotros</h2>
-    <div class="about-content">
-        <p>Qualitat está dedicada a la verificación, inspección, certificación y mejora de productos y procesos. Nuestro objetivo es satisfacer la creciente demanda de confianza, seguridad y cumplimiento normativo.</p>
-<p><p>Desde nuestras raíces, estamos trabajando para garantizar que tanto las empresas como los productos cumplan con los estándares legales y de mercado, ayudando a nuestros clientes a superar desafíos normativos y alcanzar la excelencia.</p></p>
-<p><div class="highlights">
-<h3>Datos destacados:</h3>
-<ul>
-<li><strong>Rubro:</strong> Actividades profesionales, científicas y técnicas.</li>
-<li><strong>Alcance:</strong> A nivel nacional.</li>
-<li><strong>Misión:</strong> Nuestro propósito es brindar seguridad y confianza a nuestra comunidad.</li>
-</ul>
-</div>
-</div></p>
-</section> 
-    </main>
-    <footer>
-    <div class="footer-content">
-        <div class="footer-info">
-            <p>Cerro Cora 3232 esquina Kennedy</p>
-            <p>Horario de atención: 10am a 6pm</p>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2025 QUALITAT</p>
-        </div>
-    </div>
-</footer> 
-    
-    <script src="/js/main.js" defer></script>
-</body>
-</html> 
-```
-
-`/Users/gords/Documents/Qualitat/_site/js/main.js`:
-
-```js
-document.addEventListener('DOMContentLoaded', () => {
-    // Form validation
-    const forms = document.querySelectorAll('form');
-    for (const form of forms) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add form submission logic here
-            console.log('Form submitted');
-        });
-    }
-}); 
-```
-
-`/Users/gords/Documents/Qualitat/_site/servicios/index.html`:
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - QUALITAT</title>
-    <link href="/css/styles.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gantari&display=swap" rel="stylesheet">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body class="">
-    <header>
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <img src="images/Principal_a_color-01.png" alt="QUALITAT" height="80">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header> 
-    <main id="content">
-        <section class="current-services">
-    <h2>Servicios Actuales</h2>
-    <div class="service-card">
-        <h3>Certificación de calidad de pilas y baterías</h3>
-        <p>Evaluamos y certificamos la calidad y conformidad normativa de pilas y baterías, asegurando que cumplan con la Ley 17065 y otras regulaciones aplicables.</p>
-    </div>
-</section>
-<section class="development-services">
-    <h2>Servicios en Desarrollo</h2>
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>Industria agroganadera: Garantía de productos seguros y sostenibles</h3>
-        </div>
-        <div class="service-card">
-            <h3>Sector energético: Cumplimiento normativo y eficiencia en instalaciones</h3>
-        </div>
-        <div class="service-card">
-            <h3>Industria alimentaria: Certificaciones que avalan calidad y seguridad alimentaria</h3>
-        </div>
-        <div class="service-card">
-            <h3>Sustentabilidad: Certificaciones relacionadas con la sostenibilidad y economía circular</h3>
-        </div>
-    </div>
-</section> 
-    </main>
-    <footer>
-    <div class="footer-content">
-        <div class="footer-info">
-            <p>Cerro Cora 3232 esquina Kennedy</p>
-            <p>Horario de atención: 10am a 6pm</p>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2025 QUALITAT</p>
-        </div>
-    </div>
-</footer> 
-    
-    <script src="/js/main.js" defer></script>
-</body>
-</html> 
-```
-
-`/Users/gords/Documents/Qualitat/_site/contacto/index.html`:
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - QUALITAT</title>
-    <link href="/css/styles.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gantari&display=swap" rel="stylesheet">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body class="">
-    <header>
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <img src="images/Principal_a_color-01.png" alt="QUALITAT" height="80">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header> 
-    <main id="content">
-        <section class="contact">
-    <h2>Contacto</h2>
-<p><div class="contact-info">
-<div class="info-item">
-<h3>Correo electrónico</h3>
-<p><a href="mailto:placeholder@placeholder.com">placeholder@placeholder.com</a></p>
-</div></p>
-<p><div class="info-item">
-<h3>Teléfono</h3>
-<p><a href="tel:0981567270">0981-567-270</a></p>
-</div></p>
-<p><div class="info-item">
-<h3>Ubicación</h3>
-<p>Cerro Cora 3232 esquina Kennedy</p>
-<p>Horario de atención: 10am a 6pm</p>
-</div>
-</div>
-</div></p>
-</section> 
-    </main>
-    <footer>
-    <div class="footer-content">
-        <div class="footer-info">
-            <p>Cerro Cora 3232 esquina Kennedy</p>
-            <p>Horario de atención: 10am a 6pm</p>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2025 QUALITAT</p>
-        </div>
-    </div>
-</footer> 
-    
-    <script src="/js/main.js" defer></script>
-</body>
-</html> 
-```
-
-`/Users/gords/Documents/Qualitat/src/_includes/header.njk`:
-
-```njk
-<header>
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <img src="images/Principal_a_color-01.png" alt="QUALITAT" height="80">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
-</header> 
-```
-
-`/Users/gords/Documents/Qualitat/src/_includes/footer.njk`:
-
-```njk
-<footer>
-    <div class="footer-content">
-        <div class="footer-info">
-            <p>Cerro Cora 3232 esquina Kennedy</p>
-            <p>Horario de atención: 10am a 6pm</p>
-        </div>
-        <div class="footer-copyright">
-            <p>© {% year %} QUALITAT</p>
-        </div>
-    </div>
-</footer> 
-```
-
-`/Users/gords/Documents/Qualitat/src/_includes/base.njk`:
-
-```njk
-<!DOCTYPE html>
-<html lang="{{ locale }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if title %}{{ title }} - {% endif %}QUALITAT</title>
-    <link href="/css/styles.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gantari&display=swap" rel="stylesheet">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body class="{{ class | default('') }}">
-    {% include 'header.njk' %}
-    <main id="content">
-        {{ content | safe }}
-    </main>
-    {% include 'footer.njk' %}
-    
-    <script src="/js/main.js" defer></script>
-</body>
-</html> 
-```
-
-`/Users/gords/Documents/Qualitat/src/css/styles.css`:
-
-```css
-/* Reset and Global Styles */
-:root {
-    --navy-blue: #283676;
-    --green: #90C056;
-    --light-gray: #E1E1E1;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Gantari', Arial, sans-serif;
-    color: #333;
-    height: 100%;
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Header Styles */
-header {
-    background-color: var(--light-gray);
-    padding: 1rem 2rem;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--green);
-}
-
-/* Main Content Styles */
-main {
-    flex-grow: 1;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-h1 {
-    color: var(--navy-blue);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-h2 {
-    color: var(--navy-blue);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-h3 {
-    color: var(--navy-blue);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-.intro {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-}
-
-/* Services Styles */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.service-card {
-    background-color: var(--light-gray);
-    padding: 1.5rem;
-    border-radius: 4px;
-}
-
-/* Contact Styles */
-.contact {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-.contact-info {
-    margin: 2rem 0;
-}
-
-.info-item {
-    margin-bottom: 2rem;
-}
-
-.info-item h3 {
-    margin-bottom: 0.5rem;
-}
-
-.info-item p {
-    margin: 0.5rem 0;
-    font-size: 1.125rem;
-}
-
-.info-item a {
-    color: var(--navy-blue);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.info-item a:hover {
-    color: var(--green);
-}
-
-/* Contact Form Styles */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--navy-blue);
-    font-size: 1.125rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--light-gray);
-    border-radius: 4px;
-    font-size: 1.125rem;
-}
-
-button {
-    background-color: var(--green);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 1.125rem;
-}
-
-button:hover {
-    background-color: #7ba548;
-}
-
-/* Footer Styles */
-footer {
-    background-color: var(--navy-blue);
-    color: white;
-    padding: 2rem;
-    margin-top: auto;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-info p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header nav {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    .intro {
-        font-size: 1.125rem;
-    }
-} 
-```
-
-`/Users/gords/Documents/Qualitat/src/js/main.js`:
-
-```js
-document.addEventListener('DOMContentLoaded', () => {
-    // Form validation
-    const forms = document.querySelectorAll('form');
-    for (const form of forms) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add form submission logic here
-            console.log('Form submitted');
-        });
-    }
-}); 
-```
-
-`/Users/gords/Documents/Qualitat/src/servicios.md`:
+`/home/marwerk/Runewerk/Qualitat/README.md`:
 
 ```md
----
-layout: base.njk
-title: Servicios
----
+# Qualitat
+Qualitat certification company website
 
-<section class="current-services">
-    <h2>{{ i18n[locale].site.services.current.title }}</h2>
-    <div class="service-card">
-        <h3>{{ i18n[locale].site.services.current.batteries }}</h3>
-        <p>Evaluamos y certificamos la calidad y conformidad normativa de pilas y baterías, asegurando que cumplan con la Ley 17065 y otras regulaciones aplicables.</p>
-    </div>
-</section>
-
-<section class="development-services">
-    <h2>{{ i18n[locale].site.services.development.title }}</h2>
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>{{ i18n[locale].site.services.development.agro }}</h3>
-        </div>
-        <div class="service-card">
-            <h3>{{ i18n[locale].site.services.development.energy }}</h3>
-        </div>
-        <div class="service-card">
-            <h3>{{ i18n[locale].site.services.development.food }}</h3>
-        </div>
-        <div class="service-card">
-            <h3>{{ i18n[locale].site.services.development.sustainability }}</h3>
-        </div>
-    </div>
-</section> 
 ```
 
-`/Users/gords/Documents/Qualitat/src/contacto.md`:
-
-```md
----
-layout: base.njk
-title: Contacto
----
-
-<section class="contact">
-    <h2>Contacto</h2>
-    
-    <div class="contact-info">
-        <div class="info-item">
-            <h3>Correo electrónico</h3>
-            <p><a href="mailto:placeholder@placeholder.com">placeholder@placeholder.com</a></p>
-        </div>
-        
-        <div class="info-item">
-            <h3>Teléfono</h3>
-            <p><a href="tel:0981567270">0981-567-270</a></p>
-        </div>
-        
-        <div class="info-item">
-            <h3>Ubicación</h3>
-            <p>Cerro Cora 3232 esquina Kennedy</p>
-            <p>Horario de atención: 10am a 6pm</p>
-        </div>
-    </div>
-    </div>
-</section> 
-```
-
-`/Users/gords/Documents/Qualitat/src/nosotros.md`:
-
-```md
----
-layout: base.njk
-title: Nosotros
----
-
-<section class="about">
-    <h2>Nosotros</h2>
-    <div class="about-content">
-        <p>Qualitat está dedicada a la verificación, inspección, certificación y mejora de productos y procesos. Nuestro objetivo es satisfacer la creciente demanda de confianza, seguridad y cumplimiento normativo.</p>
-        
-        <p>Desde nuestras raíces, estamos trabajando para garantizar que tanto las empresas como los productos cumplan con los estándares legales y de mercado, ayudando a nuestros clientes a superar desafíos normativos y alcanzar la excelencia.</p>
-        
-        <div class="highlights">
-            <h3>Datos destacados:</h3>
-            <ul>
-                <li><strong>Rubro:</strong> Actividades profesionales, científicas y técnicas.</li>
-                <li><strong>Alcance:</strong> A nivel nacional.</li>
-                <li><strong>Misión:</strong> Nuestro propósito es brindar seguridad y confianza a nuestra comunidad.</li>
-            </ul>
-        </div>
-    </div>
-</section> 
-```
-
-`/Users/gords/Documents/Qualitat/src/index.md`:
-
-```md
----
-layout: base.njk
-title: Inicio
-class: home-page
----
-
-<section class="hero">
-    <h1>QUALITAT</h1>
-    <p class="intro">En Qualitat, transformamos la confianza en acción. Ofrecemos servicios de verificación, inspección y certificación que garantizan el cumplimiento normativo y la seguridad en productos y procesos. Nuestro compromiso es asegurar calidad, sostenibilidad y tranquilidad para tu empresa y tu comunidad.</p>
-</section> 
-```
-
-`/Users/gords/Documents/Qualitat/src/_data/i18n/es.json`:
+`/home/marwerk/Runewerk/Qualitat/src/_data/i18n/es.json`:
 
 ```json
 {
@@ -3721,13 +2735,502 @@ class: home-page
                 "batteries": "Certificación de calidad de pilas y baterías"
             },
             "development": {
-                "title": "Servicios en Desarrollo",
-                "agro": "Industria agroganadera: Garantía de productos seguros y sostenibles",
-                "energy": "Sector energético: Cumplimiento normativo y eficiencia en instalaciones",
-                "food": "Industria alimentaria: Certificaciones que avalan calidad y seguridad alimentaria",
-                "sustainability": "Sustentabilidad: Certificaciones relacionadas con la sostenibilidad y economía circular"
+                "title": "Servicios en desarrollo",
+                "agro": "Industria agroganadera",
+                "energy": "Sector energético",
+                "food": "Industria alimentaria",
+                "sustainability": "Sustentabilidad"
             }
         }
     }
-} 
+}
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/servicios.md`:
+
+```md
+---
+layout: base.njk
+title: Servicios
+---
+
+<div class="services-content">
+    <section class="current-services">
+        <h2>{{ i18n[locale].site.services.current.title }}</h2>
+        <div class="service-card">
+            <h3>{{ i18n[locale].site.services.current.batteries }}</h3>
+            <p>Evaluamos y certificamos la calidad y conformidad normativa de pilas y baterías, asegurando que cumplan con la Ley 17065 y otras regulaciones aplicables.</p>
+        </div>
+    </section>
+
+    <section class="development-services">
+        <h2>{{ i18n[locale].site.services.development.title }}</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>{{ i18n[locale].site.services.development.agro }}</h3>
+                <p>Garantía de productos seguros y sostenibles</p>
+            </div>
+            <div class="service-card">
+                <h3>{{ i18n[locale].site.services.development.energy }}</h3>
+                <p>Cumplimiento normativo y eficiencia en instalaciones</p>
+            </div>
+            <div class="service-card">
+                <h3>{{ i18n[locale].site.services.development.food }}</h3>
+                <p>Certificaciones que avalan calidad y seguridad alimentaria</p>
+            </div>
+            <div class="service-card">
+                <h3>{{ i18n[locale].site.services.development.sustainability }}</h3>
+                <p>Certificaciones relacionadas con la sostenibilidad y economía circular</p>
+            </div>
+        </div>
+    </section>
+</div>
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/index.md`:
+
+```md
+---
+layout: base.njk
+title: Inicio
+class: home-page
+---
+
+<section class="hero service">
+<div class="service-card">
+    <h2>En Qualitat, transformamos la confianza en acción</h2>
+        <p class="intro">Ofrecemos servicios de verificación, inspección y certificación que garantizan el cumplimiento normativo y la seguridad en productos y procesos. Nuestro compromiso es asegurar calidad, sostenibilidad y tranquilidad para tu empresa y tu comunidad.</p>
+</div>
+</section>
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/js/main.js`:
+
+```js
+document.addEventListener('DOMContentLoaded', () => {
+    // Form validation
+    const forms = document.querySelectorAll('form');
+    for (const form of forms) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add form submission logic here
+            console.log('Form submitted');
+        });
+    }
+}); 
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/nosotros.md`:
+
+```md
+---
+layout: base.njk
+title: Nosotros
+---
+
+<section class="aboutus">
+    <h2>Sobre Nosotros</h2>
+        <div class="about-content service-card">
+            <p><strong class="highlights">Nuestro objetivo</strong> es satisfacer la creciente demanda de confianza, seguridad y cumplimiento normativo.</p>
+
+            <p>Desde nuestras raíces, estamos trabajando para garantizar que tanto las empresas como los productos cumplan con los estándares legales y de mercado, ayudando a nuestros clientes a superar desafíos normativos y alcanzar la excelencia.</p>
+        </div>
+        <h3>Datos destacados</h3>
+            <div class="service-card">
+                <p><strong class="highlights">Rubro:</strong> Actividades profesionales, científicas y técnicas.</p>
+                <p><strong class="highlights">Alcance:</strong> Todo el territorio Nacional.</p>
+                <p><strong class="highlights">Misión:</strong> Brindar seguridad y confianza a nuestra comunidad</p>
+            </div>
+</section>
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/contacto.md`:
+
+```md
+---
+layout: base.njk
+title: Contacto
+---
+
+<section class="contact">
+    <div class="contact-info service-card">
+        <div class="info-item">
+            <h3>Correo electrónico</h3>
+            <p><a href="mailto:ivonneplanas8@gmail.com">ivonneplanas8@gmail.com</a></p>
+        </div>
+
+        <div class="info-item">
+            <h3>Teléfono</h3>
+            <p>0981-567-270</p>
+        </div>
+
+        <div class="info-item">
+            <h3>Ubicación</h3>
+            <p>Cerro Cora 3232 esquina Kennedy</p>
+            <p>Horario de atención: 10 a 18 horas</p>
+        </div>
+    </div>
+</section>
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/css/styles.css`:
+
+```css
+/* Reset and Global Styles */
+:root {
+    --primary: #283676;
+    --secondary: #90C056;
+    --background: #E1E1E1;
+    --text-base: 1.125rem;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gantari', Arial, sans-serif;
+    color: #333;
+    height: 100%;
+    line-height: 1.4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: var(--text-base);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--background);
+    padding: 1rem 2rem;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    color: #fff
+}
+
+.aboutus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.about-content {
+    text-align: center;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #283676;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    font-weight: bolder;
+}
+
+nav ul li a:hover {
+    color: var(--secondary);
+}
+
+/* Main Content Styles */
+main {
+    flex-grow: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.intro {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Services Styles */
+
+.services-content {
+    justify-content: center;
+    align-items: center;
+
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Center the last card */
+.services-grid > :last-child {
+    grid-column: 2;
+}
+
+.service-card {
+    background-color: var(--secondary);
+    padding: 1rem;
+    border-radius: 4px;
+    color: #fff;
+}
+
+/* Contact Styles */
+.contact {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
+}
+
+.info-item {
+    margin-bottom: 2rem;
+}
+
+.info-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.info-item p {
+    margin: 0.5rem 0;
+    font-size: 1.125rem;
+}
+
+.info-item a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.info-item a:hover {
+    color: var(--secondary);
+}
+
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.highlights {
+    color: var(--primary)
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-size: 1.125rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--background);
+    border-radius: 4px;
+    font-size: 1.125rem;
+}
+
+button {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.125rem;
+}
+
+button:hover {
+    background-color: #7ba548;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--primary);
+    color: white;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    /* font-weight: bold; */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .intro {
+        font-size: 1.125rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid > :last-child {
+        grid-column: auto;
+    }
+}
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/_includes/footer.njk`:
+
+```njk
+<footer>
+    <div class="footer-content">
+        <div class="footer-info">
+            <p>Cerro Cora 3232 esquina Kennedy</p>
+            <p>Horario de atención: 10 a 18 horas</p>
+        </div>
+        <div class="footer-copyright">
+            <p>© {% year %} QUALITAT CERTIFICADORA</p>
+        </div>
+    </div>
+</footer>
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/_includes/base.njk`:
+
+```njk
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} - {% endif %}QUALITAT</title>
+    <link href="/css/styles.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gantari&display=swap" rel="stylesheet">
+<link rel="icon" href="/images/iso-icon.png" type="image/x-icon">
+</head>
+<body class="{{ class | default('') }}">
+    {% include 'header.njk' %}
+    <main id="content">
+        {{ content | safe }}
+    </main>
+    {% include 'footer.njk' %}
+
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
+```
+
+`/home/marwerk/Runewerk/Qualitat/src/_includes/header.njk`:
+
+```njk
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/">
+                <img src="/images/Main-logo.png" alt="QUALITAT" height="120">
+            </a>
+        </div>
+        <ul>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
 ```

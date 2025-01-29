@@ -20,12 +20,12 @@
                 "batteries": "Certificación de calidad de pilas y baterías"
             },
             "development": {
-                "title": "Servicios en Desarrollo",
-                "agro": "Industria agroganadera: Garantía de productos seguros y sostenibles",
-                "energy": "Sector energético: Cumplimiento normativo y eficiencia en instalaciones",
-                "food": "Industria alimentaria: Certificaciones que avalan calidad y seguridad alimentaria",
-                "sustainability": "Sustentabilidad: Certificaciones relacionadas con la sostenibilidad y economía circular"
+                "title": "Servicios en desarrollo",
+                "agro": "Industria agroganadera",
+                "energy": "Sector energético",
+                "food": "Industria alimentaria",
+                "sustainability": "Sustentabilidad"
             }
         }
     }
-} 
+}
