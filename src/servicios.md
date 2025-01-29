@@ -16,15 +16,19 @@ title: Servicios
     <div class="services-grid">
         <div class="service-card">
             <h3>{{ i18n[locale].site.services.development.agro }}</h3>
+            <p>Garantía de productos seguros y sostenibles</p>
         </div>
         <div class="service-card">
             <h3>{{ i18n[locale].site.services.development.energy }}</h3>
+            <p>Cumplimiento normativo y eficiencia en instalaciones</p>
         </div>
         <div class="service-card">
             <h3>{{ i18n[locale].site.services.development.food }}</h3>
+            <p>Certificaciones que avalan calidad y seguridad alimentaria</p>
         </div>
         <div class="service-card">
             <h3>{{ i18n[locale].site.services.development.sustainability }}</h3>
+            <p>Certificaciones relacionadas con la sostenibilidad y economía circular</p>
         </div>
     </div>
-</section> 
+</section>
