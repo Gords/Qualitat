@@ -188,6 +188,28 @@ p {
     min-height: 60vh;
 }
 
+.useful-links .service-card {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.useful-links .steps-list {
+    text-align: left;
+    display: inline-block;
+    margin: 1rem auto;
+}
+
+.useful-links .steps-list li {
+    margin-bottom: 0.5rem;
+}
+
+.useful-links h2 {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
 
 /* Contact Styles */
 .contact {
