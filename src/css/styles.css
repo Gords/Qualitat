@@ -179,6 +179,15 @@ p {
     text-align: center;
 }
 
+/* Useful Links Styles */
+.useful-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
 
 /* Contact Styles */
 .contact {

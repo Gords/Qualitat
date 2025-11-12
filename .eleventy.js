@@ -3,7 +3,8 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/images");
-    
+    eleventyConfig.addPassthroughCopy("src/files");
+
     // Add a filter to get the locale from the file path
     eleventyConfig.addFilter("getLocale", (path) => {
         const locale = path.split('/')[1];
@@ -30,4 +31,4 @@ module.exports = (eleventyConfig) => {
         dataTemplateEngine: "njk",
         passthroughFileCopy: true
     };
-}; 
+};
