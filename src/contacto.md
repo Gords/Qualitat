@@ -7,7 +7,7 @@ title: Contacto
     <div class="contact-info">
         <div class="info-item">
             <h3>Correo electrónico</h3>
-            <p><a href="mailto:ivonneplanas8@gmail.com">ivonneplanas8@gmail.com</a></p>
+            <p><a href="mailto:administracion@qualitatsa.com">administracion@qualitatsa.com</a></p>
         </div>
 
         <div class="info-item">
@@ -17,7 +17,7 @@ title: Contacto
 
         <div class="info-item">
             <h3>Ubicación</h3>
-            <p>Cerro Cora 3232 esquina Kennedy</p>
+            <p>Edificio Sky Park: San Juan XXIII esq. Tte. Oddone. Torre 3, piso 18 B</p>
             <p>Horario de atención: 10 a 18 horas</p>
         </div>
     </div>
